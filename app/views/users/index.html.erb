@@ -9,23 +9,26 @@
 			The cross-code challenge met with lukewarm support from both the Rugby Football Union and the Rugby Football League. The dates for the games were set for May 1996, which was the end of the domestic rugby union season, but was only a few weeks into the rugby league season (rugby league having made the switch to being a summer game that year). The date for the proposed game under union rules clashed with Wigan's Super League game against Sheffield Eagles,[1] while the RFU stated that Twickenham would be unavailable to stage the game when they were approached by Bath due to their plans to reseed the pitch. Both clubs had agreed that, to maximise the potential attendances, the two games should be held at venues other than their own stadia (the Recreation Ground and Central Park). However, when word came out that Cardiff Arms Park had offered to stage the union game instead, the RFU decided to postpone the pitch reseeding and offer Twickenham as the venue. Maine Road, the home of Manchester City, and a regular venue for major rugby league games at the time, was chosen to host the game to be played under league rules.
 		</p >
 	</div>
+	<%if session['linkedin_token']%>
 	<div class="col-lg-5">
 		<div class="thumbnail">
 
-			<%= image_tag("#{@user_details['pictureUrl']}", height: "200px", width: "200px") %>
+			<%= image_tag("#{@user_details['pictureUrl']}", height: "200px", width: "200px") if @user_details['pictureUrl']%>
 		      <div class="caption">
 		        <h3><span class="glyphicon glyphicon-user"></span><%= " #{@user_details['firstName']} #{@user_details['lastName']}"%></h3>
-		        <p><%= "#{@user_details['headline']}" %></p>
-		        <p><span style="font-weight:bold;">Skills: </span></p>
-		        <% skills = []%>
-		        <% @user_details['skills']['values'].each do |item|%>
-		        	<% skills << item['skill']['name'] %>
-		        <% end %>
+		        <p><%= "#{@user_details['headline']}" if @user_details['headline']%></p>
+		       	<%if @user_details.has_key?("skills")%>
+			        <p><span style="font-weight:bold;">Skills: </span></p>
+			        <% skills = []%>
+			        <% @user_details['skills']['values'].each do |item|%>
+			        	<% skills << item['skill']['name'] %>
+			        <% end %>
 		       	<p>
-
 		        <span style="word-wrap: break-word;"><%= skills.join(",") %></span>
 		        </p>
+		        <%end%>
 		      </div>
 		    </div>
 			</div>
+	<%end%>
 </div>

@@ -12,9 +12,12 @@ class OauthController < ApplicationController
 	      redirect_to :controller=> 'login', :action=> :login
 	    else
 	      # Get token object, passing in the authorization code from the previous step
-	      token = linkedin_client.auth_code.get_token(code, :redirect_uri => "http://localhost:3000/oauth/linkedin_callback")
-	 	  session['linkedin_token'] = token.token
-
+	      begin
+	      	token = linkedin_client.auth_code.get_token(code, :redirect_uri => "http://localhost:3000/oauth/linkedin_callback")
+	 	  	session['linkedin_token'] = token.token
+	 	  rescue
+	 	  	
+	 	  end
 	      redirect_to :controller=> 'users', :action => :index
 
 	    end

@@ -3,8 +3,10 @@ class UsersController < ApplicationController
   before_action :confirm_logged_in, :except => [:create]
 
   def index
-      response = linkedin.get('https://api.linkedin.com/v1/people/~:(id,email-address,picture-url,first-name,last-name,headline,skills)?format=json')
-      @user_details = JSON.parse(response.body)
+      if session['linkedin_token']
+        response = linkedin.get('https://api.linkedin.com/v1/people/~:(id,email-address,picture-url,first-name,last-name,headline,skills)?format=json')
+        @user_details = JSON.parse(response.body)
+      end
   end
 
   def show
