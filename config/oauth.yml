@@ -1,0 +1,9 @@
+#Add all your social media configuration in this file in development, production and test environment
+development:
+  facebook:
+  twitter:
+    application_id: 
+    api_key: rwmloFl7hpJuYgMXkhx86w
+    secret_key: IdSmpE4yXPvMv8EMnxCdYTE3HQHsVPgOFH0jjl2w9k
+production:
+test:

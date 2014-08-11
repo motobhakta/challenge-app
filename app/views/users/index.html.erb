@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-lg-7">
+		<h2><span class="glyphicon glyphicon-pushpin"></span>  Clash of the Codes (rugby)</h2>
+		<p>
+			In 1895, most rugby clubs in the North of England broke away from the governing body of Rugby football, the Rugby Football Union, and formed a rival body, the Northern Rugby Football Union (later renamed the Rugby Football League) over the issue of payments to players. This "Great Schism" led to the creation of two forms of Rugby football - rugby union governed by the Rugby Football Union and rugby league overseen by the Rugby Football League.
+
+			100 years later in August 1995, the International Rugby Board announced that rugby union was to be an "open" game, ending the prohibition of payments to players. In January 1996, an announcement was made that Bath RFC, at that time the dominant club side in English rugby union, and Wigan RLFC, similarly the country's dominant rugby league side, would meet in a two game, cross-code challenge series that would see both clubs playing to each other's set of laws.
+
+			The cross-code challenge met with lukewarm support from both the Rugby Football Union and the Rugby Football League. The dates for the games were set for May 1996, which was the end of the domestic rugby union season, but was only a few weeks into the rugby league season (rugby league having made the switch to being a summer game that year). The date for the proposed game under union rules clashed with Wigan's Super League game against Sheffield Eagles,[1] while the RFU stated that Twickenham would be unavailable to stage the game when they were approached by Bath due to their plans to reseed the pitch. Both clubs had agreed that, to maximise the potential attendances, the two games should be held at venues other than their own stadia (the Recreation Ground and Central Park). However, when word came out that Cardiff Arms Park had offered to stage the union game instead, the RFU decided to postpone the pitch reseeding and offer Twickenham as the venue. Maine Road, the home of Manchester City, and a regular venue for major rugby league games at the time, was chosen to host the game to be played under league rules.
+		</p >
+	</div>
+	<div class="col-lg-5">
+		<div class="thumbnail">
+
+			<%= image_tag("#{@user_details['pictureUrl']}", height: "200px", width: "200px") %>
+		      <div class="caption">
+		        <h3><span class="glyphicon glyphicon-user"></span><%= " #{@user_details['firstName']} #{@user_details['lastName']}"%></h3>
+		        <p><%= "#{@user_details['headline']}" %></p>
+		        <p><span style="font-weight:bold;">Skills: </span></p>
+		        <% skills = []%>
+		        <% @user_details['skills']['values'].each do |item|%>
+		        	<% skills << item['skill']['name'] %>
+		        <% end %>
+		       	<p>
+
+		        <span style="word-wrap: break-word;"><%= skills.join(",") %></span>
+		        </p>
+		      </div>
+		    </div>
+			</div>
+</div>

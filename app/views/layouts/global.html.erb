@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChallengeApp</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <% if !flash[:notice].blank? %>
+    <div class="rows">
+        <div class="col-lg-12">
+            <div  class="notice">
+                <%= flash[:notice] %>
+            </div>
+        </div>
+    </div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
+
+
