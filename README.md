@@ -17,4 +17,17 @@
   - logout
   - Oauth2 login
 
+###Setup###
+-----------
+  - Run rake db:migrate
+  - If you are under proxy then set by using `export http_proxy=http://proxy:port`
+
+  
+###Feature###
+-------------
+- Create an account by using `Create An Account` link
+- Then login to challange app.
+- Then it will ask your linkedin userid and password. Kindly provide.
+- Then it will redirect to your home page
+
 
